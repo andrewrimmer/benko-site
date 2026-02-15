@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benko — A Chess Coach That Knows Your Game</title>
+  <meta name="description" content="Benko reviews your games, understands your strengths and weaknesses, and coaches you to improve. Join the waitlist.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#0a0a0a',
+            'surface-light': '#141414',
+            'surface-lighter': '#1e1e1e',
+            amber: {
+              400: '#f6b93b',
+              500: '#e8a317',
+              600: '#d4940f',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Subtle board pattern for hero background */
+    .board-pattern {
+      background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.015) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.015) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.015) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.015) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+    }
+  </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center board-pattern">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface"></div>
+    <div class="relative w-full max-w-4xl mx-auto px-6 py-24 text-center">
+      <!-- Knight silhouette -->
+      <div class="mb-10 flex justify-center">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="opacity-40" aria-hidden="true">
+          <path d="M20 56h24v4H20v-4zm2-4h20l2-6c0-8-4-14-8-18l2-6c0 0 4-2 4-6 0-2-1-4-3-4l-2 2c-1-2-3-4-5-4-4 0-8 4-8 10l-2 4c-4 4-6 10-6 16l2 8 4 4z" fill="currentColor" class="text-amber-500"/>
+        </svg>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
+        A chess coach that knows your game
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Benko reviews your games, understands your strengths and weaknesses, and coaches you to improve &mdash; every game, every session.
+      </p>
+
+      <form action="https://formspree.io/f/maqdopag" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+        <label for="email-hero" class="sr-only">Email address</label>
+        <input
+          type="email"
+          name="email"
+          id="email-hero"
+          required
+          placeholder="Your email address"
+          class="flex-1 px-4 py-3 rounded-lg bg-surface-lighter border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-base"
+        >
+        <button
+          type="submit"
+          class="px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-600 text-surface font-semibold text-base transition-colors cursor-pointer whitespace-nowrap"
+        >
+          Join the Waitlist
+        </button>
+      </form>
+      <p class="text-sm text-gray-500">Be first to know when Benko launches. No spam, just chess.</p>
+    </div>
+  </section>
+
+  <!-- What Benko Does -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="fade-in text-3xl sm:text-4xl font-bold text-white text-center mb-16">Your game. Understood.</h2>
+
+      <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+        <div class="fade-in">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Game Review That Goes Deeper</h3>
+          <p class="text-gray-400 leading-relaxed">Submit any game and get a detailed, honest review. Not just what went wrong &mdash; why it went wrong, what you should have played, and what pattern to watch for next time.</p>
+        </div>
+
+        <div class="fade-in">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">A Coach With Memory</h3>
+          <p class="text-gray-400 leading-relaxed">Benko doesn't forget. It remembers your games, your patterns, your progress. Every review builds on the last. The more you play, the sharper the coaching gets.</p>
+        </div>
+
+        <div class="fade-in">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Personalised To You</h3>
+          <p class="text-gray-400 leading-relaxed">Generic advice doesn't make you better. Benko knows whether you struggle with endgames or miss knight forks. Your coaching plan is built around your actual weaknesses, not someone else's.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It's Different -->
+  <section class="py-24 sm:py-32 bg-surface-light">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="fade-in text-3xl sm:text-4xl font-bold text-white text-center mb-12">More than a game review</h2>
+
+      <div class="space-y-6 fade-in">
+        <p class="text-gray-400 text-lg leading-relaxed">
+          You've seen game reviews before. An engine marks your blunders, shows you the best move, and leaves you to figure out the rest.
+        </p>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Benko goes further. It connects this game to your last twenty. It spots the patterns you can't see yourself. It knows you've been working on your middlegame and adjusts its focus accordingly.
+        </p>
+        <p class="text-gray-300 text-lg leading-relaxed font-medium">
+          It's the difference between a printout of your mistakes and a conversation with someone who understands your chess.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Journey -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="fade-in text-3xl sm:text-4xl font-bold text-white text-center mb-12">Every game makes it smarter</h2>
+
+      <div class="space-y-6 fade-in">
+        <p class="text-gray-400 text-lg leading-relaxed">
+          From your very first game, Benko starts building a picture of you as a player. Your openings, your tactical blind spots, your time management, your strengths.
+        </p>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          After ten games, it sees things. After fifty, the patterns are undeniable. After a hundred, it knows your chess deeply.
+        </p>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Your rating history. Your opening repertoire. Your performance in the opening, middlegame, and endgame. How you handle pressure. Where you lose focus. All of it feeds into coaching that gets more specific and more useful over time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Players Get -->
+  <section class="py-24 sm:py-32 bg-surface-light">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="fade-in text-3xl sm:text-4xl font-bold text-white text-center mb-12">What to expect</h2>
+
+      <ul class="fade-in space-y-4">
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Detailed game reviews with move-by-move analysis</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Accuracy scores and performance ratings by game phase</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Identification of missed tactics &mdash; forks, pins, skewers, and more</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Opening repertoire tracking and recommendations</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Weakness pattern detection across your game history</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Personalised coaching that evolves as you improve</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1.5 block w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" aria-hidden="true"></span>
+          <span class="text-gray-300 text-lg">Available whenever you want &mdash; morning, evening, 2am after a late-night blitz session</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="fade-in text-3xl sm:text-4xl font-bold text-white mb-4">Ready to meet your coach?</h2>
+      <p class="fade-in text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Benko is launching soon. Join the waitlist and be among the first to experience personalised chess coaching.
+      </p>
+
+      <form action="https://formspree.io/f/maqdopag" method="POST" class="fade-in flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+        <label for="email-cta" class="sr-only">Email address</label>
+        <input
+          type="email"
+          name="email"
+          id="email-cta"
+          required
+          placeholder="Your email address"
+          class="flex-1 px-4 py-3 rounded-lg bg-surface-lighter border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-base"
+        >
+        <button
+          type="submit"
+          class="px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-600 text-surface font-semibold text-base transition-colors cursor-pointer whitespace-nowrap"
+        >
+          Join the Waitlist
+        </button>
+      </form>
+      <p class="fade-in text-sm text-gray-500">Be first to know when Benko launches. No spam, just chess.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <p class="text-sm text-gray-600">&copy; 2025 Benko</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Fade-in on scroll
+      var elements = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(function (el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        elements.forEach(function (el) { observer.observe(el); });
+      }
+
+      // Ajax waitlist forms
+      document.querySelectorAll('form[action*="formspree"]').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          var originalText = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Sending…';
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' },
+          })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Request failed');
+            var msg = document.createElement('p');
+            msg.className = 'text-amber-400 font-medium text-lg';
+            msg.textContent = "You're on the list. We'll be in touch.";
+            form.replaceWith(msg);
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = originalText;
+            var err = form.querySelector('.form-error');
+            if (!err) {
+              err = document.createElement('p');
+              err.className = 'form-error text-red-400 text-sm mt-2';
+              form.appendChild(err);
+            }
+            err.textContent = 'Something went wrong. Please try again.';
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
